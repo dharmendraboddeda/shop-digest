@@ -4,7 +4,7 @@ import Myntra from "@/assets/myntra.jpg";
 import Shopify from "@/assets/shopify.jpg";
 import Printerest from "@/assets/printerest.jpg";
 import Snap from "@/assets/snap.jpg";
-import Instagram from "@/assets/snap.jpg";
+import Instagram from "@/assets/instagram.jpg";
 
 const logos = [Shopify, Myntra, Flipkart, Printerest, Snap, Instagram];
 

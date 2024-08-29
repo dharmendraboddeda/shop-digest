@@ -14,21 +14,40 @@ export const Pagination = ({
   totalPages,
   onPageChange,
 }: IPaginationProps) => {
-  const handlePrevious = () => {
+  function handlePrevious() {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
-  };
+  }
 
-  const handleNext = () => {
+  function handleNext() {
     if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
     }
-  };
+  }
+
+  const pageNumbers = [];
+  const maxPageNumbersToShow = 3;
+  const halfMaxPageNumbersToShow = Math.floor(maxPageNumbersToShow / 2);
+
+  let startPage = Math.max(1, currentPage - halfMaxPageNumbersToShow);
+  let endPage = Math.min(totalPages, currentPage + halfMaxPageNumbersToShow);
+
+  if (currentPage <= halfMaxPageNumbersToShow) {
+    endPage = Math.min(totalPages, maxPageNumbersToShow);
+  }
+
+  if (currentPage + halfMaxPageNumbersToShow >= totalPages) {
+    startPage = Math.max(1, totalPages - maxPageNumbersToShow + 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
 
   return (
     <div
-      className={`flex border  bg-white bottom-0 flex-wrap items-center justify-between rounded-lg p-6 ${className}`}
+      className={`flex border bg-white bottom-0 flex-wrap items-center justify-between rounded-lg p-6 ${className}`}
     >
       <div className="space-x-2">
         <span className="text-gray-700">Showing</span>
@@ -52,18 +71,38 @@ export const Pagination = ({
           Next
         </button>
       </div>
-      <div className="h-10 flex items-center space-x-2">
+      <div className="flex border rounded-lg ">
         <button
-          className="border p-1"
+          className={` ${currentPage === 1 && "hidden"} p-2`}
           onClick={handlePrevious}
-          disabled={currentPage === 1}
         >
           <FaAngleLeft />
         </button>
+        {pageNumbers.map((pageNumber, index) => (
+          <button
+            key={index}
+            onClick={() => onPageChange(pageNumber)}
+            className={`p-2 ${
+              pageNumber === currentPage && "font-bold"
+            } border`}
+          >
+            {pageNumber}
+          </button>
+        ))}
+        <span className={`${currentPage >= totalPages - 1 && "hidden"} p-2`}>
+          ...
+        </span>
         <button
-          className="border p-1"
+          className={`${currentPage >= totalPages - 1 && "hidden"} border p-2`}
+          onClick={() => onPageChange(totalPages)}
+        >
+          {totalPages}
+        </button>
+        <button
+          className={`${
+            currentPage == totalPages && "hidden"
+          } justify-center items-center p-2 `}
           onClick={handleNext}
-          disabled={currentPage === totalPages}
         >
           <FaAngleRight />
         </button>
