@@ -19,9 +19,7 @@ export const CategoryCard = ({
   className,
 }: ICategoryCardProps) => {
   return (
-    <div
-      className={`p-4 border rounded-lg min-w60 max-w-82 space-y-2 ${className}`}
-    >
+    <div className={`p-4 border rounded-lg  w-82 space-y-2 ${className}`}>
       <span className="font-bold ">{cardTitle}</span>
       <p className="text-gray-700 text-sm">{cardDescription}</p>
       <div className="flex gap-2 items-center p-4 justify-between border-b-2 shadow-sm">
@@ -38,7 +36,7 @@ export const CategoryCard = ({
           ))}
         </div>
       </div>
-      <div className="flex justify-between items-center flex-wrap p-4">
+      <div className="flex justify-center sm:justify-between items-center flex-wrap gap-4 p-4">
         <span className="text-green-600">{apps.length} Apps</span>
         <button className="bg-black text-white text-[12px] pl-5 pr-5 rounded-full flex gap-2 p-2 items-center">
           <span>Explore</span>

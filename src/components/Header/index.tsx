@@ -22,7 +22,7 @@ export const Header = ({ className }: HeaderProps) => {
             </option>
           </select>
         </div>
-        <div className="hidden lg:flex items-center pl-1 font-normal space-x-2  text-gray-600">
+        <div className="hidden lg:flex items-center pl-1 font-normal space-x-4  text-gray-600">
           <text>Features</text>
           <text>Marketplace</text>
           <div className="flex  items-center pl-1 font-normal  text-gray-600">
@@ -41,7 +41,7 @@ export const Header = ({ className }: HeaderProps) => {
             <FaLongArrowAltRight />
           </button>
         </div>
-        <div className="lg:hidden">
+        <div className="lg:hidden font-bold">
           <CiMenuFries onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       </div>

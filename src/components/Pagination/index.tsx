@@ -47,7 +47,7 @@ export const Pagination = ({
 
   return (
     <div
-      className={`flex border bg-white bottom-0 flex-wrap items-center justify-between rounded-lg p-6 ${className}`}
+      className={`flex gap-4 justify-center border bg-white bottom-0 flex-wrap items-center md:justify-between rounded-lg p-6 ${className}`}
     >
       <div className="space-x-2">
         <span className="text-gray-700">Showing</span>
