@@ -7,7 +7,7 @@ const HeaderLayout = <P extends object>(Component: ComponentType<P>) => {
     return (
       <div>
         <Header />
-        <div className="pt-20">
+        <div className="pt-16">
           <Component {...props} />
         </div>
       </div>
